@@ -1,35 +1,33 @@
+require("dotenv").config();
 
-
-require('dotenv').config();
-
-
-const path = require('path');
-const express = require('express');
+const path = require("path");
+const express = require("express");
 const app = express();
-const expressLayout = require('express-ejs-layouts');
-const methodOverride = require('method-override');
+const expressLayout = require("express-ejs-layouts");
+const methodOverride = require("method-override");
 
 app.use(expressLayout);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.set('layout', 'layouts/layout');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.set("layout", "layouts/layout");
 
-const mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", true);
 mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
-db.on('error', (e)=>{console.log(e)});
-db.once('open', ()=>console.log("Connected"));
+db.on("error", (e) => {
+  console.log(e);
+});
+db.once("open", () => console.log("Connected"));
 
-const indexRouter = require('./src/routes/index.js');
-const journalRouter = require('./src/routes/journals.js');
+const indexRouter = require("./src/routes/index.js");
+const blogRouter = require("./src/routes/blogs.js");
 
-app.use(methodOverride('_method'));
-app.use('/', indexRouter);
-app.use('/journals', journalRouter);
+app.use(methodOverride("_method"));
+app.use("/", indexRouter);
+app.use("/blogs", blogRouter);
 
 app.listen(process.env.PORT || 3000);
-

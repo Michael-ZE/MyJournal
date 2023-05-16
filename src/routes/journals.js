@@ -1,20 +1,19 @@
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const journals = require('../controllers/journals');
+const blogs = require("../controllers/blogs");
 
-router.get('/', journals.posts);
+router.get("/", blogs.posts);
 
-router.get('/new', journals.new);
+router.get("/new", blogs.new);
 
-router.get('/:id', journals.show);
+router.get("/:id", blogs.show);
 
-router.get('/:id/edit', journals.edit);
+router.get("/:id/edit", blogs.edit);
 
-router.post('/', journals.create);
+router.post("/", blogs.create);
 
-router.patch('/:id', journals.update);
+router.patch("/:id", blogs.update);
 
-router.delete('/:id', journals.delete);
+router.delete("/:id", blogs.delete);
 
 module.exports = router;

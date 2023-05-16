@@ -1,17 +1,13 @@
 <article>
-    <div class="grid grid-2-cols">
-        <h2 class="journal-title">
-            <%= journal.title %>
-        </h2>
-        <div class="flex gap grid-align-end">
-            <a href="/journals/<%= journal.id %>/edit" class="btn btn-primary btn-link">Edit</a>
-            <%- include('../partials/deleteForm.ejs') %>
-        </div>
+  <div class="grid grid-2-cols">
+    <h2 class="blog-title"><%= blog.title %></h2>
+    <div class="flex gap grid-align-end">
+      <a href="/blogs/<%= blog.id %>/edit" class="btn btn-primary btn-link"
+        >Edit</a
+      >
+      <%- include('../partials/deleteForm.ejs') %>
     </div>
-    <span>
-        <%= journal.date %>
-    </span>
-    <p class="journal-paragraph">
-        <%= journal.post %>
-    </p>
+  </div>
+  <span> <%= blog.date %> </span>
+  <p class="blog-paragraph"><%= blog.post %></p>
 </article>

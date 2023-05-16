@@ -1,11 +1,14 @@
 <article>
-    <h2 class="page-title">Compose</h2>
-    <form action="/journals/<%= journal.id %>?_method=PATCH" method="POST" class="form-new flex">
-        <%- include('./__form_fields.ejs') %>
-            <div class="align-end">
-                <a href="/journals/<%= journal.id %>" class="btn btn-danger btn-link">Cancel</a>
-                <button class="btn btn-primary">Update</button>
-            </div>
-
-    </form>
+  <h2 class="page-title">Compose</h2>
+  <form
+    action="/blogs/<%= blog.id %>?_method=PATCH"
+    method="POST"
+    class="form-new flex"
+  >
+    <%- include('./__form_fields.ejs') %>
+    <div class="align-end">
+      <a href="/blogs/<%= blog.id %>" class="btn btn-danger btn-link">Cancel</a>
+      <button class="btn btn-primary">Update</button>
+    </div>
+  </form>
 </article>
